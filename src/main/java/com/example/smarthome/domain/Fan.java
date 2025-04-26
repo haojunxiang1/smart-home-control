@@ -1,7 +1,10 @@
 package com.example.smarthome.domain;
 
 import lombok.Getter;
+import com.example.smarthome.exception.InvalidSpeedException;
+import lombok.ToString;
 
+@ToString
 @Getter
 public class Fan implements Appliance {
     private final String id;
@@ -26,8 +29,9 @@ public class Fan implements Appliance {
         return speed > 0;
     }
 
-    public void setSpeed(int speed) {
-        if (speed < 0 || speed > 2) throw new IllegalArgumentException("Speed must be 0-2");
+    public void setSpeed(int speed) throws InvalidSpeedException {
+        if (speed < 0 || speed > 2) throw new InvalidSpeedException(speed);
         this.speed = speed;
     }
+
 }

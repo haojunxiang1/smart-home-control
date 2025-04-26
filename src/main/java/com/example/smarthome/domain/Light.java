@@ -1,7 +1,9 @@
 package com.example.smarthome.domain;
 
 import lombok.Getter;
+import lombok.ToString;
 
+@ToString
 @Getter
 public class Light implements Appliance {
     private final String id;

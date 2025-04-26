@@ -1,7 +1,10 @@
 package com.example.smarthome.domain;
 
+import com.example.smarthome.exception.InvalidModeException;
 import lombok.Getter;
+import lombok.ToString;
 
+@ToString
 @Getter
 public class AirConditioner implements Appliance {
     private final String id;
@@ -28,7 +31,8 @@ public class AirConditioner implements Appliance {
         return mode != Mode.OFF;
     }
 
-    public void setMode(Mode mode) {
+    public void setMode(Mode mode) throws InvalidModeException {
+        if (mode == null) throw new InvalidModeException("null");
         this.mode = mode;
     }
 }
