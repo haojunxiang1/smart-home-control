@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.example.smart-home-control' is invalid and this project uses 'com.example.smart_home_control' instead.
+* The original package name 'com.example.smart-home-control' is invalid and this project uses 'com.example.smarthome' instead.
 
 # Getting Started
 
