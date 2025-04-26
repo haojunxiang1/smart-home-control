@@ -7,6 +7,7 @@ import com.example.smarthome.exception.InvalidSpeedException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -14,11 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SmartHomeService {
     private final Map<String, Appliance> devices = new ConcurrentHashMap<>();
 
-    public SmartHomeService() {
-        // Pre-register demo devices
-        register(new Light("light-1"));
-        register(new Fan("fan-1"));
-        register(new AirConditioner("ac-1"));
+    public SmartHomeService(List<Appliance> appliances) {
+        appliances.forEach(this::register);
     }
 
     public void register(Appliance a) {
