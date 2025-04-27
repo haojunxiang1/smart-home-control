@@ -31,7 +31,7 @@ public class AirConditioner implements Appliance {
         return mode != Mode.OFF;
     }
 
-    public void setMode(Mode mode) throws InvalidModeException {
+    public void setMode(Mode mode) {
         if (mode == null) throw new InvalidModeException("null");
         this.mode = mode;
     }

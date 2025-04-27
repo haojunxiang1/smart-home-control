@@ -17,11 +17,7 @@ public class YearlyMaintenanceJob {
         this.service = service;
     }
 
-    /**
-     * Cron format: second minute hour dayOfMonth month dayOfWeek
-     * “0 0 1 1 1 ?” = 01:00 on January 1 every year
-     */
-    @Scheduled(cron = "0 0 1 1 1 ?", zone = "America/Halifax")
+    @Scheduled(cron = "${scheduler.yearly.cron}", zone = "${scheduler.yearly.zone}")
     public void shutdownForUpdate() {
         log.info("Yearly maintenance: turning everything OFF");
         service.all().forEach(a -> {

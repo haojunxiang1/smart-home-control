@@ -29,7 +29,7 @@ public class Fan implements Appliance {
         return speed > 0;
     }
 
-    public void setSpeed(int speed) throws InvalidSpeedException {
+    public void setSpeed(int speed) {
         if (speed < 0 || speed > 2) throw new InvalidSpeedException(speed);
         this.speed = speed;
     }
