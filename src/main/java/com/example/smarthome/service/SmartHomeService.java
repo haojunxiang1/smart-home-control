@@ -3,7 +3,6 @@ package com.example.smarthome.service;
 import com.example.smarthome.domain.*;
 import com.example.smarthome.exception.ApplianceNotFoundException;
 import com.example.smarthome.exception.InvalidModeException;
-import com.example.smarthome.exception.InvalidSpeedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
