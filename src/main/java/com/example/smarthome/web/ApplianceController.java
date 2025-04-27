@@ -16,8 +16,7 @@ import java.util.Collection;
 public class ApplianceController {
 
     private final SmartHomeService service;
-
-    /* -------- generic on/off -------- */
+    //turn on device
     @PostMapping(value = "/{id}/on", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse on(@PathVariable String id) {
@@ -25,7 +24,7 @@ public class ApplianceController {
         log.info("{} turned ON", id);
         return new ApiResponse(String.format("%s turned ON", id));
     }
-
+    //turn off device
     @PostMapping(value = "/{id}/off", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse off(@PathVariable String id) {
@@ -33,8 +32,7 @@ public class ApplianceController {
         log.info("{} turned OFF", id);
         return new ApiResponse(String.format("%s turned OFF", id));
     }
-
-    /* -------- fan-specific ---------- */
+    //change speed of fan
     @PostMapping(value = "/fan/{id}/speed/{level}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse setFanSpeed(@PathVariable String id, @PathVariable int level) {
@@ -42,8 +40,7 @@ public class ApplianceController {
         log.info("{} speed set to {}", id, fan.getSpeed());
         return new ApiResponse(String.format("%s speed set: %d", fan.getId(), fan.getSpeed()));
     }
-
-    /* -------- AC-specific ----------- */
+    //change mode of AC
     @PostMapping(value = "/ac/{id}/mode/{mode}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse setAcMode(@PathVariable String id, @PathVariable String mode) {
@@ -51,8 +48,7 @@ public class ApplianceController {
         log.info("{} mode set to {}", id, ac.getMode());
         return new ApiResponse(String.format("%s mode set: %s", ac.getId(), ac.getMode()));
     }
-
-    /* diagnostic */
+    //diagnostic
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Collection<Appliance> all() {
